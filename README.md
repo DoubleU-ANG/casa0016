@@ -22,4 +22,18 @@ This project is inspired by the weather of London, which is often raining. This 
 | Misc   | Water pump        | An actuator that can pump out water      |
 | Misc   | Adafruit solar LiPo charger board        | An external power source for water pump      |
 
+# Schematics
+
+<img width="348" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/06934a1e-4414-4e55-921f-2381b0e28aac">
+
+Rain detection circuit
+
+<img width="349" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/e112a6fa-3f79-493a-85dc-b7a85a480b41">
+
+Water level detection circuit
+
+<img width="289" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/5080b04b-9375-42b4-9bf0-3159fb524d9e">
+
+OLED screen circuit
+
 
