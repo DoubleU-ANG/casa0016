@@ -10,7 +10,7 @@ This project is inspired by the weather of London, which is often raining. This 
 
 # Hardware list
 | type     | Name | Note     |
-| :---        |    :----:   |          ---: |
+| :---        |    :----:   |  :---: |
 | Board      | Arduino Uno       | A micro-controller   |
 | Sensor   | Rain drop sensor        | A sensor for sensing rain drop      |
 | Sensor   | Water level sensor        | A sensor for sensing water level      |
