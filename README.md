@@ -35,5 +35,9 @@ Water level detection circuit
 <img width="289" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/5080b04b-9375-42b4-9bf0-3159fb524d9e">
 
 OLED screen circuit
-
+# Test
+## Function one
+When using a wet tissue to touch the rain drop sensor, the yellow LED is turned on and servo start to rotate to close the window, the wetter the tissue, the larger the angle that servo rotate until the window is completely closed.
+## Function two
+When filling the container of water level sensor with water, the LED strips starts to light up, and the number of lights indicates the current water level. When the water level is not in the danger range, all the light on LED strips are green. As I gradually increase the water in the container to the danger range, the light on LED strips turns red and the pump starts to pump out water until the water level drops to the safe range.
 
