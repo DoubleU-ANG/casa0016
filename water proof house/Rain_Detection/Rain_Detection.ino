@@ -14,7 +14,7 @@ void setup() {
 }
 
 void loop() {
-  analogWrite(2,(map(analogRead(A0), 0, 1023, 235, 0)));
+
   rain = map(analogRead(A0), 0, 1023, 235, 0);
   Serial.print("rain = ");
   Serial.println(rain);
