@@ -46,11 +46,34 @@ OLED screen circuit
 | Adafruit_NeoPixel.h      | Library for controlling neopixel strip       |
 
 ## Rain detection
+At the beginning of the code,
+In setup(),
+In loop(),
 ## Water level detection
-## Data 
+At the beginning of the code,
+In setup(),
+In loop(),
+## Data Visualization
+At the beginning of the code,
+In setup(),
+In loop(),
+
+# Enclosure
+<img width="353" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/09958fa6-9aa8-426a-bbbf-9b39d8ba6229">
+
+The enclosure was designed in Fusion 360 and was cut by laser cutter using 6mm pine board.
+
 # Test
 ## Function one
 When using a wet tissue to touch the rain drop sensor, the yellow LED is turned on and servo start to rotate to close the window, the wetter the tissue, the larger the angle that servo rotate until the window is completely closed.
 ## Function two
 When filling the container of water level sensor with water, the LED strips starts to light up, and the number of lights indicates the current water level. When the water level is not in the danger range, all the light on LED strips are green. As I gradually increase the water in the container to the danger range, the light on LED strips turns red and the pump starts to pump out water until the water level drops to the safe range.
+
+# Reflection
+### Try to split a complicated project into several parts, and finish them one by one and finally combine them together.
+### Use external power supply when using high energy-demand devices
+### Consider the direction and length of wire before assembling all the devices and enclosure
+
+# Future development
+In this project, I built a smart waterproof house to tackle the problem of raining in London. As a house, being waterproof is not enough to provide a comfort environment. Therefore in the future, I will enrich the smart house based on certain existing environment problems including strong wind, dry indoor air and so on, and build more room which makes it looks more like a real house.
 
