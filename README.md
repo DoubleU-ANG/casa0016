@@ -203,5 +203,8 @@ When filling the container of water level sensor with water, the LED strips star
 In this project, I built a smart waterproof house to tackle the problem of raining in London. As a house, being waterproof is not enough to provide a comfort environment. Therefore in the future, I will enrich the smart house based on certain existing environment problems including strong wind, dry indoor air and so on, and build more room which makes it looks more like a real house.
 # Reference
 Tido technology (No date) Raindrop detection sensor detect Rain, rain. Available at: https://www.tido.tech/index.php/product/raindrop-detection-sensor/ (Accessed: 6 December 2023)
+
 Arduino (No date) Servo motor. Available at:https://arduinogetstarted.com/tutorials/arduino-servo-motor?utm_content=cmp-true (Accessed: 6 December 2023) 
+
 Arduino (No date) Water level sensor. Available at: https://arduinogetstarted.com/tutorials/arduino-water-sensor (Accessed: 6 December 2023) 
+
