@@ -33,7 +33,6 @@ void loop() {
 
   level = map(value, SENSOR_MIN, SENSOR_MAX, 0, 4); // 4 levels
 
-  u8g2.setFont(u8g2_font_unifont_t_chinese2); // use chinese2
   u8g2.firstPage();
   do
   {
