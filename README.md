@@ -8,6 +8,8 @@ Building a smart waterproof house using Arduino UNO
 
 This project is inspired by the weather of London, which is often raining. This house has two main  functions: it keeps monitoring the environment, if it starts raining, the windows will be closed;  if rainfall is substantial and water level rises too high, water pump will be activated to pump out the water.
 
+The whole project can be divided into three main sections: Rain detection, Water level detectioin and Data visualization.
+
 # Hardware list
 | type     | Name | Note     |
 | :---        |    :----:   |  :---: |
@@ -35,6 +37,17 @@ Water level detection circuit
 <img width="289" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/5080b04b-9375-42b4-9bf0-3159fb524d9e">
 
 OLED screen circuit
+# Code
+## Libraries
+| Name     | Description |
+| :---        |    :----:   |
+| Servo.h      | Library for controlling servo       |
+| U8g2lib.h      | Library for setting up OLED screen       |
+| Adafruit_NeoPixel.h      | Library for controlling neopixel strip       |
+
+## Rain detection
+## Water level detection
+## Data 
 # Test
 ## Function one
 When using a wet tissue to touch the rain drop sensor, the yellow LED is turned on and servo start to rotate to close the window, the wetter the tissue, the larger the angle that servo rotate until the window is completely closed.
