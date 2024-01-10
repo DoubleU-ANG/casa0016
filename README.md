@@ -62,7 +62,7 @@ In setup(), initialize the pin for sensor, led and servo, set up serial
   digitalWrite(YELLOW, LOW);
   myservo.attach(9);
 ```
-In loop(), read the value of rain sensor and use 'if' statement to determine how servo and yellow led act based on the value of rain
+In loop(), read the value of rain sensor and use 'if' statement to determine how servo and yellow led react to the value of rain
 ```
   rain = map(analogRead(A0), 0, 1023, 235, 0);
   Serial.print("rain = ");
@@ -85,14 +85,75 @@ In loop(), read the value of rain sensor and use 'if' statement to determine how
   }
 ```
 ## Water level detection
-At the beginning of the code,
+At the beginning of the code, import library for LED strips, define the pin for LED strip, Red LED, water level sensor and water pump, create variable for store the value of water level. Apart from that, I also create a function for change the number and color of LED strip.
+``` 
+#include <Adafruit_NeoPixel.h>
+
+#define PIN 6
+#define RED 13
+#define NUMPIXELS 6
+#define DELAYVAL 50
+#define POWER_PIN  8
+#define SIGNAL_PIN A1
+#define SENSOR_MIN 0
+#define SENSOR_MAX 521
+#define WATER_PUMP 10
+Adafruit_NeoPixel pixels(NUMPIXELS, PIN);
+int value = 0; // variable to store the sensor value
+int level = 0; // variable to store the water level
+
+void ledstrip(int n, int r, int g, int b)
+{
+    pixels.clear();
+  for(int i=0; i<n; i++) {
+    pixels.setPixelColor(i, r, g, b);
+    pixels.show();
+    delay(DELAYVAL);
+  }
+
+  delay(100);
+}
 ```
+In setup(), initialize all the pin used, led strip and serial
 ```
-In setup(),
+  Serial.begin(9600);
+  pixels.begin();
+  pinMode(2,OUTPUT);
+  pinMode(POWER_PIN, OUTPUT);  
+  pinMode(WATER_PUMP,OUTPUT);
+  pinMode(YELLOW,OUTPUT);
+  pinMode(RED,OUTPUT);
+  digitalWrite(POWER_PIN, LOW); // turn the sensor OFF
+  digitalWrite(WATER_PUMP, LOW);
+  digitalWrite(RED, LOW); 
 ```
+In loop(), read the data from water level sensor and determine how the led strip, water pump react to the value of water level
 ```
-In loop(),
-```
+  digitalWrite(POWER_PIN, HIGH);  // turn the sensor ON
+  delay(10);                      // wait 10 milliseconds
+  value = analogRead(SIGNAL_PIN); // read the analog value from sensor
+  digitalWrite(POWER_PIN, LOW);   // turn the sensor OFF
+
+  level = map(value, SENSOR_MIN, SENSOR_MAX, 0, 4); // 4 levels
+  Serial.print("Water level: ");
+  Serial.println(level);
+  if(level>4)
+  {
+  digitalWrite(WATER_PUMP, HIGH); 
+  digitalWrite(RED, HIGH);
+  ledstrip(level,150,0,0);
+  }
+  else
+  {
+  digitalWrite(WATER_PUMP, LOW); 
+  digitalWrite(RED, LOW); 
+  ledstrip(level,0,150,0);
+  }
+  if(level==0)
+  {
+    pixels.clear();
+    pixels.show();  
+  }
 ```
 ## Data Visualization
 At the beginning of the code, import the library for the fuction used later and initialize the OLED screen
@@ -141,4 +202,6 @@ When filling the container of water level sensor with water, the LED strips star
 # Future development
 In this project, I built a smart waterproof house to tackle the problem of raining in London. As a house, being waterproof is not enough to provide a comfort environment. Therefore in the future, I will enrich the smart house based on certain existing environment problems including strong wind, dry indoor air and so on, and build more room which makes it looks more like a real house.
 # Reference
-
+Tido technology (No date) Raindrop detection sensor detect Rain, rain. Available at: https://www.tido.tech/index.php/product/raindrop-detection-sensor/ (Accessed: 6 December 2023)
+Arduino (No date) Servo motor. Available at:https://arduinogetstarted.com/tutorials/arduino-servo-motor?utm_content=cmp-true (Accessed: 6 December 2023) 
+Arduino (No date) Water level sensor. Available at: https://arduinogetstarted.com/tutorials/arduino-water-sensor (Accessed: 6 December 2023) 
