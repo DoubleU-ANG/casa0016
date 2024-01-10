@@ -10,7 +10,6 @@ void setup() {
   pinMode(YELLOW,OUTPUT);
   digitalWrite(YELLOW, LOW);
   myservo.attach(9);
-  u8g2.begin();
 }
 
 void loop() {
