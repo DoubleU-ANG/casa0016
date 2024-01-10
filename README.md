@@ -12,7 +12,7 @@ The whole project can be divided into three main sections: Rain detection, Water
 
 # Hardware list
 | type     | Name | Note     |
-| :---        |    :----:   |  :---: |
+| :---        |    :----:   |  :--- |
 | Board      | Arduino Uno       | A micro-controller   |
 | Sensor   | Rain drop sensor        | A sensor for sensing rain drop      |
 | Sensor   | Water level sensor        | A sensor for sensing water level      |
