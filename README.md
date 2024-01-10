@@ -46,14 +46,43 @@ OLED screen circuit
 | Adafruit_NeoPixel.h      | Library for controlling neopixel strip       |
 
 ## Rain detection
-At the beginning of the code,
+At the beginning of the code, import the library for servo, define the pin for yellow LED, create a object for servo and a variable for storing value of rain
 ```
+#include <Servo.h>  
+#define YELLOW 12
+
+Servo myservo;        // create a servo object 
+int rain = 0;
 ```
-In setup(),
+In setup(), initialize the pin for sensor, led and servo, set up serial
 ```
+  Serial.begin(9600);
+  pinMode(A0,INPUT);
+  pinMode(YELLOW,OUTPUT);
+  digitalWrite(YELLOW, LOW);
+  myservo.attach(9);
 ```
-In loop(),
+In loop(), read the value of rain sensor and use 'if' statement to determine how servo and yellow led act based on the value of rain
 ```
+  rain = map(analogRead(A0), 0, 1023, 235, 0);
+  Serial.print("rain = ");
+  Serial.println(rain);
+  
+  if(rain<70&&rain>10)
+  {
+   digitalWrite(YELLOW, HIGH); 
+   myservo.write(rain);
+  }
+  else if(rain>=70)
+  {
+   digitalWrite(YELLOW, HIGH); 
+   myservo.write(70); 
+  }
+  else if(rain<=10)
+  {
+  digitalWrite(YELLOW, LOW);
+  myservo.write(0);   
+  }
 ```
 ## Water level detection
 At the beginning of the code,
@@ -66,14 +95,30 @@ In loop(),
 ```
 ```
 ## Data Visualization
-At the beginning of the code,
+At the beginning of the code, import the library for the fuction used later and initialize the OLED screen
 ```
+#include <U8g2lib.h>
+U8G2_SSD1306_128X64_NONAME_F_HW_I2C u8g2(U8G2_R0, /* reset=*/U8X8_PIN_NONE, /* clock=*/SCL, /* data=*/SDA);
 ```
-In setup(),
+In setup(), activate the OLED screen
 ```
+  u8g2.begin();
+  u8g2.enableUTF8Print(); // enable UTF8 support for the Arduino print() function
 ```
-In loop(),
+In loop(), set the position of cursor first and then print the text 
 ```
+  do
+  {
+    u8g2.setCursor(3, 15);
+    u8g2.print("rain: ");
+    u8g2.setCursor(3, 30);
+    u8g2.print(rain); 
+    u8g2.setCursor(3, 45);
+    u8g2.print("Water level:");  
+    u8g2.setCursor(3, 60);
+    u8g2.print(level);    
+  } while (u8g2.nextPage());
+  delay(500);
 ```
 # Enclosure
 <img width="500" alt="image" src="https://github.com/DoubleU-ANG/casa0016/assets/100694831/09958fa6-9aa8-426a-bbbf-9b39d8ba6229">
